@@ -1,0 +1,17 @@
+modules = ["nodejs-24", "python-3.11"]
+run = "streamlit run app.py --server.port 5000"
+
+[deployment]
+router = "application"
+deploymentTarget = "autoscale"
+run = "streamlit run app.py --server.port 5000"
+
+[agent]
+expertMode = true
+
+[nix]
+packages = ["cairo", "ffmpeg-full", "freetype", "ghostscript", "glibcLocales", "gobject-introspection", "gtk3", "pkg-config", "qhull", "tcl", "tk"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
